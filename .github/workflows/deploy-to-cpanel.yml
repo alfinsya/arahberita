@@ -32,11 +32,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || '22' }}
-          source: |
-            index.html
-            css/
-            img/
-            js/
-            article/
-            articles.json
+          source: .
           target: ${{ secrets.REMOTE_PATH }}
+          rm: true
