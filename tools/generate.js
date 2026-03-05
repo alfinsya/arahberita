@@ -40,29 +40,33 @@ function readExistingArticles() {
 }
 
 function extractFirstImage(content) {
-  // Look for the first significant image in the article content
-  // Typically the main article image with class "img-fluid w-100"
+  // Look for the main article image - specifically with class "img-fluid w-100"
+  // This is the standard featured image container in the template
+  const mainImageMatch = content.match(/<img[^>]*class="img-fluid w-100"[^>]*src=["']([^"']+)["'][^>]*>/i);
+  
+  if (mainImageMatch) {
+    const src = mainImageMatch[1];
+    const normalizedSrc = src.replace('../img/', 'img/');
+    return normalizedSrc;
+  }
+  
+  // Fallback: look for any first significant image (not logo, ads, or profile pics)
   const imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/gi;
-  const matches = [];
   let match;
   
   while ((match = imgRegex.exec(content)) !== null) {
     const src = match[1];
-    // Skip logo, ads, and small profile images
     if (!src.includes('logo.png') && 
         !src.includes('ads-') && 
         !src.includes('cewe') && 
         !src.includes('cowok') && 
-        !src.includes('alfin.jpg') &&
-        !src.includes('news-800x500-')) {
-      // Convert relative path from article folder to root-relative path
+        !src.includes('alfin.jpg')) {
       const normalizedSrc = src.replace('../img/', 'img/');
-      matches.push(normalizedSrc);
+      return normalizedSrc;
     }
   }
   
-  // Return the first valid image, or default if none found
-  return matches.length > 0 ? matches[0] : 'img/logo.png';
+  return 'img/logo.png';
 }
 
 function scanLocalArticles() {
