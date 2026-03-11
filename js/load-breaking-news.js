@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Clear existing items
             breakingNews.innerHTML = '';
 
-            // Ambil 5 berita terbaru untuk breaking news
-            const latestArticles = articles.slice(0, 5);
+            // Ambil 2 berita terbaru untuk breaking news (membatasi judul agar tetap besar dan mudah dibaca)
+            const latestArticles = articles.slice(0, 2);
 
             // Render breaking news items
             latestArticles.forEach(article => {
@@ -33,6 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.appendChild(link);
                 breakingNews.appendChild(item);
             });
+
+            // re-initialize Owl Carousel in case it was already running
+            if (typeof $.fn.owlCarousel === 'function' && breakingNews.closest('.owl-carousel')) {
+                const $bc = $(breakingNews);
+                $bc.trigger('destroy.owl.carousel');
+                $bc.html($bc.find('.owl-stage-outer').html()).removeClass('owl-loaded');
+                $bc.owlCarousel({
+                    autoplay: true,
+                    smartSpeed: 2000,
+                    items: 1,
+                    dots: false,
+                    loop: true,
+                    nav : true,
+                    navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+                });
+            }
         })
         .catch(err => {
             console.error('❌ Error loading articles.json for breaking news:', err);
