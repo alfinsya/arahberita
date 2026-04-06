@@ -1,4 +1,4 @@
-# 📸 Panduan Google Drive Images untuk Indonesia Daily
+﻿# 📸 Panduan Google Drive Images untuk Indonesia Daily
 
 ## 🎯 **Cara Agar Google Drive Images Bisa Kebaca**
 

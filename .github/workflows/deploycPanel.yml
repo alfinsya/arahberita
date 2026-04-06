@@ -42,5 +42,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "article,css,js,img,lib,scripts,index.html,articles.json,contact.html,login.html,register.html,search.html,news.html"
-          target: /home/wartajan/public_html/
+          target: /home/indonesiadaily/public_html/
           rm: true

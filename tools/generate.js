@@ -85,7 +85,7 @@ function extractFirstImage(content) {
     }
   }
   
-  return 'img/logo.png';
+  return '';
 }
 
 function scanLocalArticles() {
@@ -115,11 +115,18 @@ function scanLocalArticles() {
       
       // Extract first image from content
       const imagePath = extractFirstImage(content);
+
+      // Extract badge/category from the badge element in HTML
+      let category = 'Berita Lokal';
+      const badgeMatch = content.match(/<a[^>]*class="badge badge-primary[^>]*>([^<]+)<\/a>/);
+      if (badgeMatch) {
+        category = badgeMatch[1].trim();
+      }
       
       localArticles.push({
         title,
         excerpt,
-        category: 'Local',
+        category: category,
         date: new Date().toISOString().split('T')[0],
         image: imagePath,
         url: `article/${slug}.html`,

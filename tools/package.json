@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "indonesiadaily-article-generator",
   "version": "1.0.0",
   "description": "Generator artikel otomatis dari Google Sheets untuk Indonesia Daily",
@@ -20,3 +20,4 @@
     "handlebars": "^4.7.7"
   }
 }
+
