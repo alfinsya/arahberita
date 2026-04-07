@@ -23,7 +23,7 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./
-          server-dir: indonesiadaily.wartajanten.my.id/
+          server-dir: ./
           timeout: 60000
           state-name: ftp-deploy-${{ github.run_id }}
           exclude: |
