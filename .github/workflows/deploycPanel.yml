@@ -23,7 +23,7 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./
-          server-dir: /home/wartajan/indonesiadaily.wartajanten.my.id
+          server-dir: /home/wartajan/indonesiadaily.wartajanten.my.id/
           exclude: |
             **/.git*
             **/.git*/**
