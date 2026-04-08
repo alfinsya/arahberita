@@ -1,4 +1,4 @@
-# 🔧 Troubleshooting - Masalah & Solusi
+﻿# ðŸ”§ Troubleshooting - Masalah & Solusi
 
 ## Masalah 1 & 2: Gambar Salah di Search & Category Filter
 **Gejala:** Saat search atau klik kategori Lingkungan, berita1-f tampil tapi gambar menunjukkan `berita10.png` instead of gambar seharusnya.
@@ -7,7 +7,7 @@
 - File gambar **`img/beritaf1.jpg` belum ada** di folder `img/`
 - search.html & category filter membaca `image` field dari `articles.json`
 - articles.json punya path: `"image": "img/beritaf1.jpg"`
-- Browser coba load gambar yang tidak ada → fallback ke `berita10.png`
+- Browser coba load gambar yang tidak ada â†’ fallback ke `berita10.png`
 
 ### Solusi:
 **Option A: Upload File Gambar (Recommended)**
@@ -35,22 +35,22 @@
 - Generated artikel tidak ter-integrasi ke hardcoded list
 - Perlu update HTML atau gunakan dynamic loading
 
-### Solusi (Sudah Ter-Fix ✅):
+### Solusi (Sudah Ter-Fix âœ…):
 Script **`js/load-news.js`** sudah di-buat untuk:
 - Otomatis fetch dari `articles.json`
 - Clear hardcoded list
 - Render dinamis dari database
 
 **Yang sudah dilakukan:**
-1. ✅ Buat `js/load-news.js` dengan logic untuk load articles.json
-2. ✅ Add `<script src="js/load-news.js"></script>` ke news.html
-3. ✅ Script akan auto-populate newsContainer dengan semua artikel
+1. âœ… Buat `js/load-news.js` dengan logic untuk load articles.json
+2. âœ… Add `<script src="js/load-news.js"></script>` ke news.html
+3. âœ… Script akan auto-populate newsContainer dengan semua artikel
 
 **Verifikasi:**
 1. Refresh `news.html` di browser (Ctrl+F5 untuk clear cache)
 2. Buka browser console (F12)
-3. Lihat message: `✅ Loaded XX articles from articles.json`
-4. Scroll ke bawah di All News → berita1-f harus ada di daftar
+3. Lihat message: `âœ… Loaded XX articles from articles.json`
+4. Scroll ke bawah di All News â†’ berita1-f harus ada di daftar
 
 ---
 
@@ -58,9 +58,9 @@ Script **`js/load-news.js`** sudah di-buat untuk:
 
 | Masalah | Penyebab | Status | Solusi |
 |---------|---------|--------|--------|
-| Search gambar salah | File img/beritaf1.jpg tidak ada | ⏳ Pending User | Upload file ke img/ |
-| Category filter gambar salah | File img/beritaf1.jpg tidak ada | ⏳ Pending User | Upload file ke img/ |
-| Berita1-f tidak ada di All News | hardcoded list | ✅ FIXED | Added js/load-news.js |
+| Search gambar salah | File img/beritaf1.jpg tidak ada | â³ Pending User | Upload file ke img/ |
+| Category filter gambar salah | File img/beritaf1.jpg tidak ada | â³ Pending User | Upload file ke img/ |
+| Berita1-f tidak ada di All News | hardcoded list | âœ… FIXED | Added js/load-news.js |
 
 ---
 
@@ -68,12 +68,12 @@ Script **`js/load-news.js`** sudah di-buat untuk:
 
 - [ ] **Upload file gambar ke folder `img/`**
   - Nama file harus match kolom `image` di spreadsheet
-  - Misal: spreadsheet isi "beritaf1.jpg" → upload file `img/beritaf1.jpg`
+  - Misal: spreadsheet isi "beritaf1.jpg" â†’ upload file `img/beritaf1.jpg`
 
 - [ ] **Test di website:**
-  - [ ] Buka `news.html` → scroll down → cek berita1-f ada di "All News"
-  - [ ] Search "Perhutani KPH Bandung" → berita1-f tampil dengan gambar benar
-  - [ ] Footer klik kategori "Lingkungan" → berita1-f tampil dengan gambar benar
+  - [ ] Buka `news.html` â†’ scroll down â†’ cek berita1-f ada di "All News"
+  - [ ] Search "Perhutani KPH Bandung" â†’ berita1-f tampil dengan gambar benar
+  - [ ] Footer klik kategori "Lingkungan" â†’ berita1-f tampil dengan gambar benar
 
 ---
 
@@ -88,7 +88,7 @@ img.onerror = function() {
 };
 ```
 - Grab `image` field dari articles.json
-- Jika tidak ada atau error load → fallback ke `berita10.png`
+- Jika tidak ada atau error load â†’ fallback ke `berita10.png`
 
 ### Bagaimana news.html menampilkan artikel:
 ```javascript
@@ -107,12 +107,12 @@ fetch('/articles.json')
 ### Alur Lengkap:
 ```
 Google Sheets (image: "beritaf1.jpg")
-    ↓
-Generator → articles.json (image: "img/beritaf1.jpg")
-    ↓
-browser → folder img/beritaf1.jpg ❌ (not found)
-    ↓
-fallback → img/berita10.png ✓ (exists)
+    â†“
+Generator â†’ articles.json (image: "img/beritaf1.jpg")
+    â†“
+browser â†’ folder img/beritaf1.jpg âŒ (not found)
+    â†“
+fallback â†’ img/berita10.png âœ“ (exists)
 ```
 
 **FIX:** Upload file beritaf1.jpg ke folder img/
@@ -120,3 +120,6 @@ fallback → img/berita10.png ✓ (exists)
 ---
 
 **Updated:** 2026-02-12
+
+
+

@@ -1,4 +1,4 @@
-# Rebrand dari Indonesia Daily ke Indonesia Daily
+﻿# Rebrand dari Indonesia Daily ke Indonesia Daily
 # Script ini melakukan rebrand lengkap dengan backup otomatis
 
 # Set encoding ke UTF-8
@@ -46,7 +46,7 @@ function Backup-File {
     }
 }
 
-Write-Log -Message "===== REBRAND WARTA JANTEN DIMULAI ====="
+Write-Log -Message "===== REBRAND Arah Berita DIMULAI ====="
 Write-Log -Message "Root path: $WorkspaceRoot"
 
 # 1. BACKUP CRITICAL FILES
@@ -254,7 +254,7 @@ Write-Log -Message "Documentation updated: $($FileChanges['docs'])"
 
 if ($foundIssues.Count -gt 0) {
     Write-Log -Message ""
-    Write-Log -Message "⚠️  WARNING: Found $($foundIssues.Count) potential old branding references:" -Type "WARNING"
+    Write-Log -Message "âš ï¸  WARNING: Found $($foundIssues.Count) potential old branding references:" -Type "WARNING"
     foreach ($issue in $foundIssues | Select-Object -First 10) {
         Write-Log -Message "  - File: $($issue.File), Line $($issue.Line): $($issue.Pattern)" -Type "WARNING"
     }
@@ -262,26 +262,26 @@ if ($foundIssues.Count -gt 0) {
         Write-Log -Message "  ... and $($foundIssues.Count - 10) more" -Type "WARNING"
     }
 } else {
-    Write-Log -Message "✅ No old branding references found!"
+    Write-Log -Message "âœ… No old branding references found!"
 }
 
 Write-Log -Message ""
 Write-Log -Message "Color scheme verification:"
 foreach ($color in $newColors) {
-    $status = if ($colorFound[$color]) { "✅ Found" } else { "⚠️  Not found" }
+    $status = if ($colorFound[$color]) { "âœ… Found" } else { "âš ï¸  Not found" }
     Write-Log -Message "  $($color): $status"
 }
 
 if ($ErrorLog.Count -gt 0) {
     Write-Log -Message ""
-    Write-Log -Message "❌ ERRORS ENCOUNTERED:" -Type "ERROR"
+    Write-Log -Message "âŒ ERRORS ENCOUNTERED:" -Type "ERROR"
     foreach ($error in $ErrorLog) {
         Write-Log -Message "  - $error" -Type "ERROR"
     }
 }
 
 Write-Log -Message ""
-Write-Log -Message "Rebrand Indonesia Daily selesai ✅"
+Write-Log -Message "Rebrand Indonesia Daily selesai âœ…"
 Write-Log -Message "Report saved to: $LogFile"
 Write-Log -Message "============================="
 
@@ -296,3 +296,6 @@ Write-Log -Message "============================="
     Issues = $foundIssues.Count
     LogFile = $LogFile
 }
+
+
+

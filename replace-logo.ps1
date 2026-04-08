@@ -1,4 +1,4 @@
-# Script untuk mengganti logo image dengan text-based logo di semua HTML files
+﻿# Script untuk mengganti logo image dengan text-based logo di semua HTML files
 
 $WorkspaceRoot = "c:\KULIAH\MAGANG\Magang di Perhutani\Indonesia Daily"
 $htmlFiles = Get-ChildItem -Path $WorkspaceRoot -Recurse -Include "*.html" -File
@@ -39,3 +39,6 @@ foreach ($file in $htmlFiles) {
 Write-Host ""
 Write-Host "Logo replacement complete!"
 Write-Host "Total files updated: $replaceCount"
+
+
+
